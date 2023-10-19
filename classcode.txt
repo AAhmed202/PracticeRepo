@@ -1,0 +1,47 @@
+package qa.java.lab.person;
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int compareTo(Person p) {
+        return this.name.compareTo(p.getName());
+    }
+
+    public static void bSortByAge(Person[] pers) {
+        for (int i = 0; i < pers.length - 1; i++) {
+            for (int j = 0; j < pers.length - i - 1; j++) {
+                if (pers[j].getAge() > pers[j + 1].getAge()) {
+                    Person temp = pers[j];
+                    pers[j] = pers[j + 1];
+                    pers[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void bSortByName(Person[] pers) {
+        for (int i = 0; i < pers.length - 1; i++) {
+            for (int j = 0; j < pers.length - i - 1; j++) {
+                if (pers[j].compareTo(pers[j + 1]) > 0) {
+                    Person temp = pers[j];
+                    pers[j] = pers[j + 1];
+                    pers[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
